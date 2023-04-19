@@ -1,0 +1,40 @@
+.grid .customer-icon {
+    height: 50px;
+    width: auto;
+    margin-top: 5px;
+}
+
+.grid th {
+    color: #000;
+    font-size: 16px;
+    border-bottom: 2px solid #bbb;
+}
+
+.grid tbody tr:not(:first-child) {
+    border-top: 1px solid #bbb;
+}
+
+.grid tbody tr:nth-child(odd) {
+    background-color: #efefef;
+}
+
+.grid th,
+.grid td {
+    padding: 8px;
+}
+
+.grid tbody a {
+    text-decoration: none;
+}
+
+.grid tbody a:not(:hover) {
+    color: #446E9B;
+}
+
+.spinner-border {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+}

@@ -1,0 +1,10 @@
+.details-image {
+    height:100px;
+    width:auto;
+    margin-top:10px;
+}
+
+agm-map {
+    height: 550px;
+    width: auto;
+}

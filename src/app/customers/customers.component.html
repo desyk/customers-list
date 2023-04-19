@@ -1,0 +1,55 @@
+<header>
+  <h3 class="pl-3"><i class="fas fa-users"></i> Customers</h3>
+</header>
+<div class="row mt-4">
+  <div class="col-12">
+    <nav class="nav">
+      <a 
+        class="nav-link"
+        (click)="changeViewMode(viewModeEnum.Card)"
+        [class.active]="viewMode === viewModeEnum.Card ? 'active' : ''"
+      ><i class="fas fa-th-large"></i> Card view</a>
+      <a 
+        class="nav-link"
+        (click)="changeViewMode(viewModeEnum.Grid)"
+        [class.active]="viewMode === viewModeEnum.Grid ? 'active' : ''"
+        ><i class="fas fa-list"></i> List View</a>
+      <a 
+        class="nav-link"
+        (click)="changeViewMode(viewModeEnum.Map)"
+        [class.active]="viewMode === viewModeEnum.Map ? 'active' : ''"
+      ><i class="fas fa-map-marker-alt"></i> Map View</a>
+      <a 
+        class="nav-link"
+        [routerLink]="[ '/customer', 'new' ]"
+      ><i class="fas fa-user-plus"></i> New Customer</a>
+      <span class="filter-div ml-auto mr-3">
+        Filter:
+        <input 
+          type="text"
+          [(ngModel)]="filteredName"
+        >
+      </span>
+
+    </nav>
+    
+    <div class="container mt-4">
+      <app-customers-card
+        *ngIf="viewMode === viewModeEnum.Card"
+        [cardCustomers]="customers"
+        [filterName]="filteredName"
+      ></app-customers-card>
+      <app-customers-grid
+        *ngIf="viewMode === viewModeEnum.Grid"
+        [gridCustomers]="customers"
+        [filterName]="filteredName"
+      ></app-customers-grid>
+      <app-customers-map
+        *ngIf="viewMode === viewModeEnum.Map"
+        [mapCustomers]="customers"
+        [filterName]="filteredName"
+      ></app-customers-map>
+    </div>
+
+  </div>
+</div>

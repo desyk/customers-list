@@ -1,0 +1,46 @@
+<header>
+  <h3 class="pl-3"><i class="fas fa-tags"></i> Orders</h3>
+</header>
+<div class="container mt-4">
+  <div *ngIf="customers; else loading">
+    <div class="row mt-4">
+      <div class="col-7">
+        <div *ngFor="let customer of customers | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+            <h4 class="mt-4">{{ customer.firstName | titlecase }} {{ customer.lastName | titlecase }}</h4>
+            <table
+              class="table table-striped table-hover orders-table mt-4"
+            >
+            <tbody>
+              <ng-template
+                [ngIf]="customer.orders && customer.orders.length"
+                [ngIfElse]="noOrders"
+              >
+                <tr *ngFor="let order of customer.orders">
+                  <td>{{ order.productName }}</td>
+                  <td class="text-right">{{ order.itemCost | currency:'USD' }}</td>    
+                </tr>
+                <tr class="summary-border">
+                  <td>Total</td>
+                  <td class="text-right">{{ customer.orderTotal | currency:'USD' }}</td>
+                </tr>
+              </ng-template>
+              <ng-template #noOrders>
+                <tr>
+                  <td>No orders found</td>
+                </tr>
+              </ng-template>
+            </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-12">
+        <ngb-pagination [collectionSize]="customers.length" [(page)]="page" [pageSize]="pageSize"></ngb-pagination>
+      </div>
+    </div>
+  </div>
+  <ng-template #loading>
+    <app-loading-spinner></app-loading-spinner>
+  </ng-template>
+</div>

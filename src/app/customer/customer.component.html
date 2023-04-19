@@ -1,0 +1,32 @@
+<header>
+  <h3 class="pl-3"><i class="fas fa-user"></i> Customer information</h3>
+</header>
+<div class="row mt-4">
+  <div class="col-12">
+    <nav 
+      *ngIf="customerId" 
+      class="nav"
+    >
+      <a 
+        class="nav-link"
+        [routerLink]="[customerId, 'details']"
+        routerLinkActive="active"
+        ><i class="fas fa-list"></i> Customer Details</a>
+      <a 
+        class="nav-link"
+        [routerLink]="[customerId, 'orders']"
+        routerLinkActive="active"
+      ><i class="fas fa-tags"></i> Customer Orders</a>
+
+      <a 
+        class="nav-link"
+        [routerLink]="[customerId, 'edit']"
+        routerLinkActive="active"
+      ><i class="fas fa-edit"></i> Edit Customer</a>
+    </nav>
+    
+    <div class="container mt-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+.card {
+    margin-bottom: 20px;
+}
+
+.card .card-header {
+    background-image: linear-gradient(#6d94bf, #446E9B 50%, #3e648d);
+    background-repeat: no-repeat;
+    /* border: 1px solid #345578; */
+    color: #fff;
+    font-size: 18px;
+}
+
+.card .card-header a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.card .card-header a i {
+    color: #fff;
+}
+
+.card-container .card .card-header {
+    min-height: 63px;
+    padding: 0.25rem 1.25rem;
+    align-items: center;
+}
+
+.card .card-body {
+    height: 128px;
+    overflow-y: auto;
+}
+
+.card .card-body .card-body-left {
+    width: 50px;
+}
+
+.card .card-body .customer-icon {
+    height: 50px;
+    width: auto;
+}
+
+.card .card-body .card-body-left {
+    margin-right: 8px;
+}
+
+.card .card-body .city-text {
+    min-height: 48px;
+}
+
+.card .card-body a.card-text {
+    text-decoration: none;
+}
+
+.card .card-body a.card-text:not(:hover) {
+    color: #446E9B;
+}
+
+.spinner-border {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+}
+  
